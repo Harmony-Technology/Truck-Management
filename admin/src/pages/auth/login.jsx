@@ -10,11 +10,14 @@ import {
   Typography,
   Container,
   InputLabel,
+  Checkbox,
 } from '@mui/material';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 
 const Page = () => {
   const router = useRouter();
+  const label = { inputProps: { 'aria-label': 'Se rappeler de moi' } };
+
   const formik = useFormik({
     initialValues: {
       email: 'demo@devias.io',
@@ -63,20 +66,22 @@ const Page = () => {
             <Container
               sx={{
                 p: 3,
-
-                backgroundColor: 'white',
-                // backgroundColor: 'background: rgba(255, 255, 255, 0.56)',
                 borderRadius: '10px',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
-                // shadow
+                alignItems: 'center',
                 boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.06)',
-                height: '700px',
+                height: '650px',
                 width: '578px',
               }}>
-              <Stack spacing={2} sx={{ mb: 12, width: '350px' }}>
+              <Stack
+                spacing={2}
+                sx={{
+                  mb: 6,
+                  width: '350px',
+                  marginRight: '62px',
+                }}>
                 <Typography color='##484444' fontWeight={700} fontSize={40}>
                   Welcome Back
                 </Typography>
@@ -93,7 +98,7 @@ const Page = () => {
 
                   <TextField
                     InputProps={{
-                      'sx': {
+                      sx: {
                         '& input': {
                           display: 'flex',
                           alignItems: 'center',
@@ -101,10 +106,6 @@ const Page = () => {
                         },
                         'height': '56px',
                         'width': '410px',
-                      },
-                      // change color of border on click
-                      '&:focus': {
-                        borderColor: 'black',
                       },
                     }}
                     className='rounded-lg'
@@ -118,11 +119,28 @@ const Page = () => {
                     value={formik.values.email}
                   />
                 </Stack>
-
                 <Stack spacing={1} sx={{ mt: 3 }}>
-                  <InputLabel sx={{ color: '#000000' }} htmlFor='password'>
-                    Mot de passe
-                  </InputLabel>
+                  <Stack
+                    sx={{ width: '410px' }}
+                    direction='row'
+                    justifyContent='space-between'>
+                    <InputLabel sx={{ color: '#000000' }} htmlFor='password'>
+                      Mot de passe
+                    </InputLabel>
+                    <Typography
+                      color='#464E5F'
+                      fontSize={14}
+                      fontWeight={700}
+                      sx={{
+                        'textAlign': 'right',
+                        'cursor': 'pointer',
+                        '&:hover': {
+                          color: 'black',
+                        },
+                      }}>
+                      Mot de passe oublié
+                    </Typography>
+                  </Stack>
 
                   <TextField
                     className='rounded-lg '
@@ -151,12 +169,43 @@ const Page = () => {
                     value={formik.values.password}
                   />
                 </Stack>
-
                 {formik.errors.submit && (
                   <Typography color='error' sx={{ mt: 3 }} variant='body2'>
                     {formik.errors.submit}
                   </Typography>
                 )}
+                <Stack
+                  sx={{
+                    mt: 3,
+                    width: '410px',
+                  }}
+                  spacing={0.2}
+                  direction='row'>
+                  <Checkbox
+                    {...label}
+                    defaultChecked
+                    sx={{
+                      'width': '20px',
+                      'height': '20px',
+                      'borderRadius': '5px',
+                      'backgroundColor': '#FFFFFF',
+                      'marginRight': '10px',
+
+                      '&:hover': {
+                        backgroundColor: '#FFFFFF',
+                        opacity: 0.8,
+                      },
+                    }}
+                  />
+                  <Typography
+                    color='rgba(72, 68, 68, 1)'
+                    fontSize={14}
+                    sx={{
+                      textAlign: 'left',
+                    }}>
+                    Se rappeler de moi
+                  </Typography>
+                </Stack>
                 <Button
                   fullWidth
                   size='large'
@@ -164,9 +213,9 @@ const Page = () => {
                     'mt': 3,
                     'height': '61px',
                     'width': '410px',
-                    'backgroundColor': '#F9B531',
+                    'backgroundColor': '#111C43',
                     '&:hover': {
-                      backgroundColor: '#F9B531',
+                      backgroundColor: '#111C43',
                       opacity: 0.8,
                     },
                   }}

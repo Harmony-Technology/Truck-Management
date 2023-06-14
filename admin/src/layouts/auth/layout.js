@@ -19,7 +19,6 @@ export const Layout = (props) => {
           xs={12}
           lg={6}
           sx={{
-            backgroundColor: 'background: rgba(255, 255, 255, 0.56)',
             display: 'flex',
             flexDirection: 'column',
             position: 'relative',
@@ -27,7 +26,7 @@ export const Layout = (props) => {
           <Box
             component='header'
             sx={{
-              left: 0,
+              left: 200,
               p: 3,
               position: 'fixed',
               top: 0,
@@ -37,7 +36,6 @@ export const Layout = (props) => {
               <Image
                 src='/assets/logos/logo-harmony.svg'
                 alt='logo'
-                className='absolute bottom-2 left-3 first-letter:object-contain w-28 opacity-80 z-[2]'
                 width={97}
                 height={97}
               />
@@ -57,22 +55,18 @@ export const Layout = (props) => {
             'width': '100%',
             'alignItems': 'center',
             'background':
-              'linear-gradient(89.55deg, rgba(255, 242, 206, 0) 0.44%, rgba(249, 181, 49, 0.59) 99.68%), url(.jpg), radial-gradient(51.86% 35.94% at 50% 50%, #FFFAEC 0%, #FFAF36 100%)',
-            'color': 'white',
+              'linear-gradient(63.11% 67.65% at 50.08% 14.43%, rgba(136, 146, 183, 0.08) 0%, rgba(17, 28, 67, 0.82) 100%)',
+            'backgroundImage': `url('/assets/wallpaper1.png')`,
+            'backgroundRepeat': 'no-repeat',
+            'backgroundSize': 'cover',
             'display': 'flex',
             'justifyContent': 'flex-start',
             '& img': {
-              // maxWidth: '20%',
               position: 'relative',
-              right: 110,
+              right: 120,
             },
             '@media (max-width: 1200px)': {
               display: 'none',
-              // 'justifyContent': 'center',
-              // '& img': {
-              //   maxWidth: '50%',
-              //   right: 0,
-              // },
             },
           }}>
           <Box sx={{ p: 3 }}>
