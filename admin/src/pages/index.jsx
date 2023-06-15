@@ -6,133 +6,157 @@ import { OverviewLatestOrders } from 'src/sections/overview/overview-latest-orde
 import { useTrucks } from '@/hooks/query-hooks/useTrucks';
 import moment from 'moment';
 
-const Page = () => (
-  <>
-    <Head>
-      <title>Dashboard</title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8,
-        bgcolor: "#D9D9D9",
-      }}
-    >
-      <Container maxWidth="xl">
-        <Grid container spacing={0}>
-          <Container
-            maxWidth="xl"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              mb: 5,
-              borderRadius: "12px",
-              height: "100%",
-            }}
-          >
-            <Grid
-              container
-              spacing={2}
+const Page = () => {
+  const { data, refetch } = useTrucks();
+  console.log(data);
+
+  return (
+    <>
+      <Head>
+        <title>Dashboard</title>
+      </Head>
+      <Box
+        component='main'
+        sx={{
+          flexGrow: 1,
+          py: 8,
+          bgcolor: '#D9D9D9',
+        }}>
+        <Container maxWidth='xl'>
+          <Grid container spacing={0}>
+            <Container
+              maxWidth='xl'
               sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                borderRadius: "12px",
-                height: "100%",
-                width: "100%",
-              }}
-            >
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                mb: 5,
+                borderRadius: '12px',
+                height: '100%',
+              }}>
               <Grid
-                xs={12}
-                sm={6}
-                lg={3}
+                container
+                spacing={2}
                 sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  borderRadius: "12px",
-                  height: "100%",
-                  width: "100%",
-                }}
-              >
-                <OverviewBudget
-                  difference={12}
-                  positive
-                  sx={{ height: "100%" }}
-                  value="$24k"
-                />
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                  borderRadius: '12px',
+                  height: '100%',
+                  width: '100%',
+                }}>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  lg={3}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    height: '100%',
+                    width: '100%',
+                  }}>
+                  <OverviewBudget
+                    difference={12}
+                    positive
+                    sx={{ height: '100%' }}
+                    value='$24k'
+                  />
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  lg={3}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    height: '100%',
+                    width: '100%',
+                  }}>
+                  <OverviewBudget
+                    difference={12}
+                    positive
+                    sx={{ height: '100%' }}
+                    value='$24k'
+                  />
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  lg={3}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    height: '100%',
+                    width: '100%',
+                  }}>
+                  <OverviewBudget
+                    difference={12}
+                    positive
+                    sx={{ height: '100%' }}
+                    value='$24k'
+                  />
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  lg={3}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    borderRadius: '12px',
+                    height: '100%',
+                    width: '100%',
+                  }}>
+                  <OverviewBudget
+                    difference={12}
+                    positive
+                    sx={{ height: '100%' }}
+                    value='$24k'
+                  />
+                </Grid>
               </Grid>
-              <Grid
-                xs={12}
-                sm={6}
-                lg={3}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  borderRadius: "12px",
-                  height: "100%",
-                  width: "100%",
-                }}
-              >
-                <OverviewBudget
-                  difference={12}
-                  positive
-                  sx={{ height: "100%" }}
-                  value="$24k"
-                />
-              </Grid>
-              <Grid
-                xs={12}
-                sm={6}
-                lg={3}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  borderRadius: "12px",
-                  height: "100%",
-                  width: "100%",
-                }}
-              >
-                <OverviewBudget
-                  difference={12}
-                  positive
-                  sx={{ height: "100%" }}
-                  value="$24k"
-                />
-              </Grid>
-              <Grid
-                xs={12}
-                sm={6}
-                lg={3}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  borderRadius: "12px",
-                  height: "100%",
-                  width: "100%",
-                }}
-              >
-                <OverviewBudget
-                  difference={12}
-                  positive
-                  sx={{ height: "100%" }}
-                  value="$24k"
-                />
-              </Grid>
+            </Container>
+            <Grid item xs={12} md={12} lg={12}>
+              <OverviewLatestOrders
+                // orders={(data?.data || []).map((item) => ({
+                //   id: item.id,
+                //   plate_number: item.plate_number,
+                //   intime: moment(item.date).format('DD/MM/YYYY'),
+                //   hour: moment(item.date).format('HH:mm:ss'),
+                //   outtime: '',
+                //   tag: '',
+                //   status: '',
+                //   image: item.url_truck,
+                //   image1: item.url_plate,
+                // }))}
+                orders={[
+                  {
+                    id: '#232458',
+                    plate_number: 'QY980945',
+                    intime: '12/04/2023',
+                    status: 'Inactive',
+                    tag: '80982938',
+                    hour: '04:45:32',
+                    image: '/../public/Truck.jpg',
+                    image1: '/../public/Id.jpg',
+                  },
+                ]}
+                sx={{ height: '100%' }}
+              />
             </Grid>
-          </Container>
           </Grid>
-          
         </Container>
       </Box>
     </>
   );
-
+};
 
 Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 

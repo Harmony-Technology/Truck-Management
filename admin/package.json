@@ -16,6 +16,7 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.16",
     "@hookform/resolvers": "^3.1.0",
+    "@mui/icons-material": "^5.11.16",
     "@mui/lab": "5.0.0-alpha.120",
     "@mui/material": "^5.11.10",
     "@mui/system": "5.11.9",
