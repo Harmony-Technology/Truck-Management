@@ -126,7 +126,7 @@ const Page = () => {
                 orders={[
                   {
                     id: data?.id,
-                    plate_number: data?.platenumber,
+                    plate_number: data.platenumber,
                     // filter the date and time  from the database
                     
                   
