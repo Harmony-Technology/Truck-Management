@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Card, CardContent, Stack, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Stack, Typography } from "@mui/material";
 import { Truck } from "src/components/truck";
 import chart from "../../../public/chart.png";
 import Image from "next/image";

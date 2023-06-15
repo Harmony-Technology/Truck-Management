@@ -30,37 +30,98 @@ const Page = () => (
               height: "100%",
             }}
           >
-            <Grid xs={12} sm={6} lg={6}>
-              <OverviewBudget
-                difference={12}
-                positive
-                sx={{ height: "100%" }}
-                value="$24k"
-              />
-            </Grid>
-            <Grid xs={12} sm={6} lg={6}>
-              <OverviewBudget
-                difference={12}
-                positive
-                sx={{ height: "100%" }}
-                value="$24k"
-              />
-            </Grid>
-            <Grid xs={12} sm={6} lg={6}>
-              <OverviewBudget
-                difference={12}
-                positive
-                sx={{ height: "100%" }}
-                value="$24k"
-              />
-            </Grid>
-            <Grid xs={12} sm={6} lg={6}>
-              <OverviewBudget
-                difference={12}
-                positive
-                sx={{ height: "100%" }}
-                value="$24k"
-              />
+            <Grid
+              container
+              spacing={2}
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                borderRadius: "12px",
+                height: "100%",
+                width: "100%",
+              }}
+            >
+              <Grid
+                xs={12}
+                sm={6}
+                lg={3}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  borderRadius: "12px",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <OverviewBudget
+                  difference={12}
+                  positive
+                  sx={{ height: "100%" }}
+                  value="$24k"
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                sm={6}
+                lg={3}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  borderRadius: "12px",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <OverviewBudget
+                  difference={12}
+                  positive
+                  sx={{ height: "100%" }}
+                  value="$24k"
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                sm={6}
+                lg={3}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  borderRadius: "12px",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <OverviewBudget
+                  difference={12}
+                  positive
+                  sx={{ height: "100%" }}
+                  value="$24k"
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                sm={6}
+                lg={3}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  borderRadius: "12px",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <OverviewBudget
+                  difference={12}
+                  positive
+                  sx={{ height: "100%" }}
+                  value="$24k"
+                />
+              </Grid>
             </Grid>
           </Container>
           <Grid xs={12} md={12} lg={12}>
