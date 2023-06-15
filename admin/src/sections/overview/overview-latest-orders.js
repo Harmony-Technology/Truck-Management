@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import {
   Box,
   Card,
@@ -8,14 +8,14 @@ import {
   TableCell,
   TableHead,
   TableRow,
-} from "@mui/material";
-import { Scrollbar } from "src/components/scrollbar";
-import { SeverityPill } from "src/components/severity-pill";
-import Image from "next/image";
+} from '@mui/material';
+import { Scrollbar } from 'src/components/scrollbar';
+import { SeverityPill } from 'src/components/severity-pill';
+import Image from 'next/image';
 
 const statusMap = {
-  Active: "success",
-  Inactive: "error",
+  Active: 'success',
+  Inactive: 'error',
 };
 
 export const OverviewLatestOrders = (props) => {
@@ -42,27 +42,26 @@ export const OverviewLatestOrders = (props) => {
                   <TableRow hover key={order.id}>
                     <TableCell
                       sx={{
-                        alignItems: "center",
-                      }}
-                    >
+                        alignItems: 'center',
+                      }}>
                       <Image
                         src={order.image}
-                        alt="Picture of the author"
+                        alt='Picture of the author'
                         width={80}
                         height={50}
                         style={
-                          order.status === "Active"
-                            ? { border: "2px solid green" }
-                            : { border: "2px solid red" }
+                          order.status === 'Active'
+                            ? { border: '2px solid green' }
+                            : { border: '2px solid red' }
                         }
                       />
                       <Image
                         src={order.image1}
-                        alt="Picture of the author"
+                        alt='Picture of the author'
                         width={80}
                         height={50}
                         style={{
-                          marginLeft: "10px",
+                          marginLeft: '10px',
                         }}
                       />
                     </TableCell>
@@ -71,23 +70,21 @@ export const OverviewLatestOrders = (props) => {
                     <TableCell>{order.plate_number}</TableCell>
                     <TableCell
                       sx={{
-                        display: "grid",
-                        justifyContent: "flex-start",
-                        marginTop: "10px",
-                      }}
-                    >
+                        display: 'grid',
+                        justifyContent: 'flex-start',
+                        marginTop: '10px',
+                      }}>
                       {order.intime}
                       <SeverityPill>{order.hour}</SeverityPill>
                     </TableCell>
                     <TableCell>
-                      {order.outtime ? order.outtime : "--/--/----"}
+                      {order.outtime ? order.outtime : '--/--/----'}
                     </TableCell>
                     <TableCell
                       sx={{
-                        display: "grid",
-                        justifyContent: "flex-start",
-                      }}
-                    >
+                        display: 'grid',
+                        justifyContent: 'flex-start',
+                      }}>
                       {order.tag}
                       <SeverityPill color={statusMap[order.status]}>
                         {order.status}
@@ -105,7 +102,7 @@ export const OverviewLatestOrders = (props) => {
   );
 };
 
-OverviewLatestOrders.prototype = {
+OverviewLatestOrders.propTypes = {
   orders: PropTypes.array,
   sx: PropTypes.object,
 };

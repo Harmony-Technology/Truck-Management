@@ -3,7 +3,7 @@ import { COMMON_STALE_TIME } from '@/lib/globals';
 import HttpClient from '../../stores/http_store';
 
 export async function getTrucks() {
-  const url = `${HttpClient.base_url}json-file`;
+  const url = `${HttpClient.base_url}`;
   return HttpClient.get(url).then((response) => {
     if (response && response.status === 200) {
       const truck = response.data;

@@ -4,8 +4,6 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { OverviewBudget } from 'src/sections/overview/overview-budget';
 import { OverviewLatestOrders } from 'src/sections/overview/overview-latest-orders';
 import { useTrucks } from '@/hooks/query-hooks/useTrucks';
-import moment from 'moment';
-
 const Page = () => {
   const { data, refetch } = useTrucks();
   console.log(data);
@@ -125,27 +123,18 @@ const Page = () => {
             </Container>
             <Grid item xs={12} md={12} lg={12}>
               <OverviewLatestOrders
-                // orders={(data?.data || []).map((item) => ({
-                //   id: item.id,
-                //   plate_number: item.plate_number,
-                //   intime: moment(item.date).format('DD/MM/YYYY'),
-                //   hour: moment(item.date).format('HH:mm:ss'),
-                //   outtime: '',
-                //   tag: '',
-                //   status: '',
-                //   image: item.url_truck,
-                //   image1: item.url_plate,
-                // }))}
                 orders={[
                   {
-                    id: '#232458',
-                    plate_number: 'QY980945',
-                    intime: '12/04/2023',
-                    status: 'Inactive',
-                    tag: '80982938',
-                    hour: '04:45:32',
-                    image: '/../public/Truck.jpg',
-                    image1: '/../public/Id.jpg',
+                    id: data?.id,
+                    plate_number: data?.platenumber,
+                    // filter the date and time  from the database
+                    
+                  
+                    // outtime: '',
+                    // tag: '',
+                    // status: '',
+                    // image: data?.image,
+                    // image1: '',
                   },
                 ]}
                 sx={{ height: '100%' }}

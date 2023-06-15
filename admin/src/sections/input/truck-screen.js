@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import ReactPlayer from 'react-player';
 import {
   Box,
   Typography,
@@ -14,14 +15,19 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 export const TruckScreen = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentTime, setCurrentTime] = useState('00:00:00');
+  const [duration, setDuration] = useState('00:00:00');
+  const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef(null);
 
   const handlePlay = () => {
     setIsPlaying(true);
+    setIsHovered(false);
   };
 
   const handlePause = () => {
     setIsPlaying(false);
+    setIsHovered(true);
   };
 
   const handleFullscreen = () => {
@@ -54,6 +60,23 @@ export const TruckScreen = () => {
     }
   };
 
+  const handleProgress = (progress) => {
+    setCurrentTime(formatTime(progress.playedSeconds));
+    setDuration(formatTime(progress.loadedSeconds));
+  };
+
+  const formatTime = (time) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+  };
+
+  const padZero = (value) => {
+    return value.toString().padStart(2, '0');
+  };
+
   return (
     <>
       <Grid item xs={12} md={12} lg={12}>
@@ -66,13 +89,20 @@ export const TruckScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'relative',
-          }}>
+          }}
+          ref={videoRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}>
           {isPlaying ? (
-            <video
-              ref={videoRef}
-              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-              src='https://www.w3schools.com/html/mov_bbb.mp4'
-              autoPlay
+            <ReactPlayer
+              // WW3SCHOOLS BOB VIDEO
+              // url='https://www.youtube.com/watch?v=jfKfPfyJRdk'
+              url='https://www.w3schools.com/html/mov_bbb.mp4'
+              playing={isPlaying}
+              width='100%'
+              height='100%'
+              style={{ objectFit: 'cover' }}
+              onProgress={handleProgress}
             />
           ) : (
             <div
@@ -93,26 +123,28 @@ export const TruckScreen = () => {
             <IconButton
               aria-label='play'
               onClick={handlePlay}
-              style={{
+              sx={{
                 position: 'absolute',
-                bottom: '10%',
+                top: '50%',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                transform: 'translate(-50%, -50%)',
                 color: 'red',
+                fontSize: '6rem',
               }}>
               <PlayCircleOutlineIcon sx={{ fontSize: '6rem' }} />
             </IconButton>
           )}
-          {isPlaying && (
+          {isPlaying && isHovered && (
             <IconButton
               aria-label='pause'
               onClick={handlePause}
-              style={{
+              sx={{
                 position: 'absolute',
-                bottom: '10%',
+                top: '50%',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                transform: 'translate(-50%, -50%)',
                 color: 'white',
+                fontSize: '6rem',
               }}>
               <PauseCircleOutlineIcon sx={{ fontSize: '6rem' }} />
             </IconButton>
@@ -120,13 +152,13 @@ export const TruckScreen = () => {
           <IconButton
             aria-label='fullscreen'
             onClick={handleFullscreen}
-            style={{
+            sx={{
               position: 'absolute',
               bottom: '1rem',
               right: '1rem',
-              color: 'red',
+              color: 'white',
             }}>
-            <FullscreenIcon />
+            <FullscreenIcon sx={{ fontSize: '2rem' }} />
           </IconButton>
         </Box>
       </Grid>
@@ -141,7 +173,7 @@ export const TruckScreen = () => {
             alignItems: 'center',
           }}>
           <Typography variant='body1' sx={{ color: 'white', py: 2 }}>
-            Du : 12:04:23 {'          '} l {'          '} A : 03:21:38
+            Du: {currentTime} {'   '} l {'   '} A: {duration}
           </Typography>
         </Box>
       </Grid>
