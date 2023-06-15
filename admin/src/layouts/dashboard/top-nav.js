@@ -21,6 +21,8 @@ import { Typography } from "@mui/material";
 const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
+
+
 export const TopNav = (props) => {
   const { onNavOpen } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
@@ -71,7 +73,7 @@ export const TopNav = (props) => {
               </IconButton>
             </Tooltip> */}
             <Typography color="textPrimary" variant="h6">
-              Dashboard
+                
             </Typography>
           </Stack>
           <Stack alignItems="center" direction="row" spacing={2}>

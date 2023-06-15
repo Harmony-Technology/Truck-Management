@@ -25,6 +25,7 @@ const Page = () => (
         bgcolor: "#D9D9D9",
         height: "100%",
         width: "100%",
+        overflow:"hidden"
       }}
     >
       <Container
