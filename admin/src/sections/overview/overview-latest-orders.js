@@ -1,14 +1,8 @@
-import { format } from "date-fns";
 import PropTypes from "prop-types";
-import ArrowRightIcon from "@heroicons/react/24/solid/ArrowRightIcon";
 import {
   Box,
-  Button,
   Card,
-  CardActions,
-  CardHeader,
   Divider,
-  SvgIcon,
   Table,
   TableBody,
   TableCell,
@@ -48,8 +42,6 @@ export const OverviewLatestOrders = (props) => {
                   <TableRow hover key={order.id}>
                     <TableCell
                       sx={{
-                        marginLeft: "20px",
-                        paddingLeft:"20px",
                         alignItems: "center",
                       }}
                     >
@@ -58,12 +50,20 @@ export const OverviewLatestOrders = (props) => {
                         alt="Picture of the author"
                         width={80}
                         height={50}
+                        style={
+                          order.status === "Active"
+                            ? { border: "2px solid green" }
+                            : { border: "2px solid red" }
+                        }
                       />
                       <Image
                         src={order.image1}
                         alt="Picture of the author"
                         width={80}
                         height={50}
+                        style={{
+                          marginLeft: "10px",
+                        }}
                       />
                     </TableCell>
 
@@ -71,9 +71,9 @@ export const OverviewLatestOrders = (props) => {
                     <TableCell>{order.plate_number}</TableCell>
                     <TableCell
                       sx={{
-                        // alignItems: "center",
                         display: "grid",
                         justifyContent: "flex-start",
+                        marginTop: "10px",
                       }}
                     >
                       {order.intime}
@@ -84,7 +84,6 @@ export const OverviewLatestOrders = (props) => {
                     </TableCell>
                     <TableCell
                       sx={{
-                        // alignItems: "center",
                         display: "grid",
                         justifyContent: "flex-start",
                       }}
@@ -102,20 +101,6 @@ export const OverviewLatestOrders = (props) => {
         </Box>
       </Scrollbar>
       <Divider />
-      {/* <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button
-          color="inherit"
-          endIcon={
-            <SvgIcon fontSize="small">
-              <ArrowRightIcon />
-            </SvgIcon>
-          }
-          size="small"
-          variant="text"
-        >
-          View all
-        </Button>
-      </CardActions> */}
     </Card>
   );
 };

@@ -9,6 +9,7 @@ import {
   Popover,
   Typography,
 } from "@mui/material";
+import Router from "next/router";
 // import { useAuth } from 'src/hooks/use-auth';
 
 export const AccountPopover = (props) => {
@@ -37,7 +38,7 @@ export const AccountPopover = (props) => {
       >
         <Typography variant="overline">Account</Typography>
         <Typography color="text.secondary" variant="body2">
-         Mohammed Amine
+          Mohammed Amine
         </Typography>
       </Box>
       <Divider />
@@ -51,7 +52,9 @@ export const AccountPopover = (props) => {
           },
         }}
       >
-        <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
+        <MenuItem onClick={() => Router.push("/auth/login")}>
+          Sign out
+        </MenuItem>
       </MenuList>
     </Popover>
   );
