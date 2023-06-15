@@ -1,17 +1,6 @@
 import PropTypes from "prop-types";
-import ArrowDownIcon from "@heroicons/react/24/solid/ArrowDownIcon";
-import ArrowUpIcon from "@heroicons/react/24/solid/ArrowUpIcon";
-import CurrencyDollarIcon from "@heroicons/react/24/solid/CurrencyDollarIcon";
-import {
-  Avatar,
-  Card,
-  CardContent,
-  Stack,
-  SvgIcon,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 import { Truck } from "src/components/truck";
-import { Chart } from "src/components/chart";
 import chart from "../../../public/chart.png";
 import Image from "next/image";
 
@@ -27,41 +16,23 @@ export const OverviewBudget = (props) => {
       }}
     >
       <CardContent>
-        <Stack
-          // alignItems=""
-          direction="row"
-          justifyContent="space-between"
-          spacing={3}
-        >
+        <Stack direction="row" justifyContent="space-between" spacing={3}>
           <Stack spacing={1}>
             <Truck />
-            {/* <Chart/> */}
           </Stack>
           <Stack
             sx={{
               alignItems: "flex-start",
               justifyContent: "flex-start",
             }}
-            // spacing={0}
           >
             <Typography color="textSecondary" variant="overline">
-              Total OCR
+              Total
             </Typography>
             <Typography color="textPrimary" variant="h6">
               2,890
             </Typography>
           </Stack>
-          {/* <Avatar
-            sx={{
-              backgroundColor: "error.main",
-              height: 56,
-              width: 56,
-            }}
-          >
-            <SvgIcon>
-              <CurrencyDollarIcon />
-            </SvgIcon>
-          </Avatar> */}
         </Stack>
         {difference && (
           <Stack alignItems="center" direction="row" spacing={2} sx={{ mt: 2 }}>
