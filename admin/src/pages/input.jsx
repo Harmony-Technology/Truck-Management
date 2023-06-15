@@ -29,24 +29,25 @@ const Page = () => (
     >
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid xs={12} md={6} lg={6}
-          sx={{
-            backgroundColor: "#111C43",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 5,
-            borderRadius: "12px",
-            // height: "100%",
-            // width:"10:px"
-          }}
+          <Grid
+            xs={12}
+            md={6}
+            lg={6}
+            sx={{
+              backgroundColor: "#111C43",
+              justifyContent: "center",
+              alignItems: "center",
+              mb: 5,
+              borderRadius: "12px",
+              // height: "100%",
+              // width:"10:px"
+            }}
           >
-            <Box
-              
-            >
+            <Box>
               <Image
                 src={truck}
                 alt="Picture of the author"
-                width={500}
+                width={685}
                 height={500}
               />
             </Box>

@@ -8,6 +8,7 @@ import UsersIcon from "@heroicons/react/24/solid/UsersIcon";
 import XCircleIcon from "@heroicons/react/24/solid/XCircleIcon";
 import { SvgIcon } from "@mui/material";
 
+
 export const items = [
   {
     title: "Dashboard",
@@ -19,7 +20,7 @@ export const items = [
   },
   {
     title: "Out put",
-    path: "/companies",
+    path: "/output",
   },
   {
     title: "Settings",
