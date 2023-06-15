@@ -1,8 +1,10 @@
-import Head from "next/head";
-import { Box, Container, Unstable_Grid2 as Grid } from "@mui/material";
-import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
-import { OverviewBudget } from "src/sections/overview/overview-budget";
-import { OverviewLatestOrders } from "src/sections/overview/overview-latest-orders";
+import Head from 'next/head';
+import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
+import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
+import { OverviewBudget } from 'src/sections/overview/overview-budget';
+import { OverviewLatestOrders } from 'src/sections/overview/overview-latest-orders';
+import { useTrucks } from '@/hooks/query-hooks/useTrucks';
+import moment from 'moment';
 
 const Page = () => (
   <>
@@ -123,79 +125,12 @@ const Page = () => (
                 />
               </Grid>
             </Grid>
-          </Container>
-          <Grid xs={12} md={12} lg={12}>
-            <OverviewLatestOrders
-              orders={[
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  status: "Active",
-                  tag: "80982938",
-                  hour: "04:45:32",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  status: "Inactive",
-                  tag: "80982938",
-                  hour: "04:45:32",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  status: "Inactive",
-                  tag: "80982938",
-                  hour: "04:45:32",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  status: "Active",
-                  tag: "80982938",
-                  hour: "04:45:32",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  hour: "04:45:32",
-                  tag: "80982938",
-                  status: "Active",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-                {
-                  id: "#232458",
-                  plate_number: "QY980945",
-                  intime: "12/04/2023",
-                  status: "Inactive",
-                  tag: "80982938",
-                  hour: "04:45:32",
-                  image: "/../public/Truck.jpg",
-                  image1: "/../public/Id.jpg",
-                },
-              ]}
-              sx={{ height: "100%" }}
-            />
           </Grid>
-        </Grid>
-      </Container>
-    </Box>
-  </>
-);
+        </Container>
+      </Box>
+    </>
+  );
+
 
 Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
